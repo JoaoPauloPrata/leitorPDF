@@ -2,16 +2,12 @@ from tkinter import *
 from tkinter import filedialog
 from ConvertToTxt import ConvertToTxt
 from SearchInFile import SearchInFile
-import PyPDF2
-import re
-import fitz
-import os
+
 src_pdf = filedialog.askopenfilename()
 conversor = ConvertToTxt(src_pdf)
 conversor.create_txt_file()
 
 vetArquivo = []
-
 
 searcher = SearchInFile()
 
@@ -20,13 +16,9 @@ vetNomesGuias, vetNumeroCarteira = searcher.getPatientInfos()
 vetValoresGuias = searcher.getGlosasValues()
 vetCodGlosas = searcher.getCodGlosas()
 
+arquivo2 = open('saida.txt', 'w', encoding='utf-8')
 
 aux = 0
-
-arquivo2 = open('saida.txt', 'w', encoding='utf-8')
-aux = 0 
-
-
 for i in range(len(vetValoresGuias)):
     if(vetValoresGuias[i] != "0,00"):
         arquivo2.write(vetCodGlosas[aux])
