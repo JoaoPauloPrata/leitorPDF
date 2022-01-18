@@ -1,20 +1,15 @@
 from tkinter import *
 from tkinter import filedialog
+from ConvertToTxt import ConvertToTxt
 import PyPDF2
 import re
 import fitz
 import os
-origem = filedialog.askopenfilename()
-print(origem)
-conteudo = ""
+src_pdf = filedialog.askopenfilename()
+conversor = ConvertToTxt(src_pdf)
+conversor.create_txt_file()
 
-with fitz.open(origem) as pdf:
-    for pagina in pdf:
-        conteudo += pagina.get_text()
 
-arquivo = open('auxiliar.txt', 'w', encoding='utf-8')
-arquivo.write(conteudo)
-arquivo.close()
 arquivo = open('auxiliar.txt', 'r', encoding='utf-8')
 vetArquivo = []
 
