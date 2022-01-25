@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import filedialog
-from ConvertToTxt import ConvertToTxt
-from SearchInFile import SearchInFile
+from components.ConvertToTxt import ConvertToTxt
+from components.SearchInFile import SearchInFile
 
 src_pdf = filedialog.askopenfilename()
 conversor = ConvertToTxt(src_pdf)
